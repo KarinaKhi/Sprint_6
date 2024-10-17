@@ -23,5 +23,5 @@ def open_main_page(driver):
 
 def get_random_date():
     today = datetime.now()
-    random_future_date = today + timedelta(days=random.randint(1, 7))  # Дата через 1-7 дней
+    random_future_date = today + timedelta(days=random.randint(1, 7))
     return random_future_date.strftime('%d.%m.%Y')
