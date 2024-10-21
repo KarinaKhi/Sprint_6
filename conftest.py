@@ -4,10 +4,10 @@ from selenium import webdriver
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 from datetime import datetime, timedelta
-from locators.order_locators import OrderPageLocators
+from resources.constants import BASE_URL
 
 
-@pytest.fixture
+@pytest.fixture(scope='class')
 def driver():
     driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
     driver.implicitly_wait(20)
@@ -17,7 +17,8 @@ def driver():
 
 @pytest.fixture
 def open_main_page(driver):
-    driver.get("https://qa-scooter.praktikum-services.ru/")
+    driver.get(BASE_URL)
+    driver.maximize_window()
     return driver
 
 
